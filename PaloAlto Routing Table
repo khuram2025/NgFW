@@ -1,0 +1,12 @@
+PaloALto Routing Tabel 
+
+show routing route 
+show routing fib 
+test routing fib-lookup ip 192.168.21.12 virtual-router default 
+
+show pbf
+show session id 
+test pbf-policy-match 
+
+show pbf rule all 
+show pbf rule name test 
