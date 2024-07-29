@@ -1,1 +1,30 @@
+sudo apt update
+sudo apt upgrade -y
+sudo apt install ntp -y
+sudo nano /etc/ntp.conf
+
+# Use servers from the NTP Pool Project. Approved by Ubuntu.
+# Read the docs at http://support.ntp.org/bin/view/Servers/NTPPoolServers
+server 0.ubuntu.pool.ntp.org iburst
+server 1.ubuntu.pool.ntp.org iburst
+server 2.ubuntu.pool.ntp.org iburst
+server 3.ubuntu.pool.ntp.org iburst
+
+
+restrict -4 default kod notrap nomodify nopeer noquery
+restrict -6 default kod notrap nomodify nopeer noquery
+
+restrict 127.0.0.1
+restrict ::1
+
+restrict 192.168.0.0 mask 255.255.255.0 nomodify notrap
+
+sudo systemctl restart ntp
+
+ntpq -p
+
+sudo systemctl enable ntp
+sudo ufw allow 123/udp
+
+
 sudo ufw allow 123/udp
