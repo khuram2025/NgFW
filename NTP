@@ -22,9 +22,16 @@ restrict 192.168.0.0 mask 255.255.255.0 nomodify notrap
 sudo systemctl restart ntp
 
 ntpq -p
+timedatectl status
+sudo timedatectl set-timezone Asia/Riyadh
 
 sudo systemctl enable ntp
 sudo ufw allow 123/udp
 
 
 sudo ufw allow 123/udp
+
+
+
+ntp server 10.12.50.13
+
