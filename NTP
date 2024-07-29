@@ -2,6 +2,7 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install ntp -y
 sudo nano /etc/ntp.conf
+sudo nano /etc/ntpsec/ntp.conf
 
 # Use servers from the NTP Pool Project. Approved by Ubuntu.
 # Read the docs at http://support.ntp.org/bin/view/Servers/NTPPoolServers
