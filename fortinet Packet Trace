@@ -1,1 +1,23 @@
 
+diag sniffer packet any "src 192.168.50.254 and dst 10.51.2.11 and icmp" 4 l 0
+
+
+
+
+diagnose debug enable
+diagnose debug console timestamp enable
+diagnose debug flow filter saddr 192.168.50.254
+diagnose debug flow filter daddr 10.51.2.11
+diagnose debug flow trace start 100
+
+# Generate traffic (e.g., ping from source to destination)
+ping 10.51.2.11
+
+# Observe and interpret the output
+# ...
+
+# Stop debugging
+diagnose debug reset
+diagnose debug disable
+
+
