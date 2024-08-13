@@ -12,6 +12,24 @@ server 2.ubuntu.pool.ntp.org iburst
 server 3.ubuntu.pool.ntp.org iburst
 
 
+driftfile /var/lib/ntp/ntp.drift
+
+server time.saso.gov.sa iburst
+server time2.isu.net.sa iburst
+
+# Restrict default access
+restrict -4 default kod notrap nomodify nopeer noquery
+restrict -6 default kod notrap nomodify nopeer noquery
+
+# Allow localhost
+restrict 127.0.0.1
+restrict ::1
+
+# Allow local network
+restrict 10.10.100.0 mask 255.255.255.0 nomodify notrap
+
+
+
 restrict -4 default kod notrap nomodify nopeer noquery
 restrict -6 default kod notrap nomodify nopeer noquery
 
