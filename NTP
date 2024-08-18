@@ -54,3 +54,28 @@ sudo ufw allow 123/udp
 
 ntp server 10.12.50.13
 
+
+Enable md5 authetication 
+
+sudo nano /etc/ntp/keys
+# Key ID  Type  Key
+1 MD5 mysecretkey
+
+
+sudo chown ntp:ntp /etc/ntp/keys
+sudo chmod 600 /etc/ntp/keys
+
+# Specify the key file
+keys /etc/ntp/keys
+
+# Specify the trusted key IDs
+trustedkey 1
+
+# Specify the key to use with the servers
+server time.saso.gov.sa key 1
+server time2.isu.net.sa key 1
+server 0.ubuntu.pool.ntp.org key 1
+server 1.ubuntu.pool.ntp.org key 1
+server 2.ubuntu.pool.ntp.org key 1
+server 3.ubuntu.pool.ntp.org key 1
+
